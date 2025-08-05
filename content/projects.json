@@ -1,0 +1,64 @@
+{
+  "featured": [
+    {
+      "id": "link-date",
+      "title": "Link & Date - AI Dating Platform",
+      "description": "Agentic, LLM-powered swipe-free dating app for professionals",
+      "longDescription": "Designing and developing an MVP leveraging agentic AI and large language models (LLMs) to deliver deep, swipe-free interactions through long-form prompts, context-aware matchmaking, secure authentication, and calendar-integrated scheduling.",
+      "technologies": ["LLM", "Agentic AI", "React", "Node.js", "Calendar API"],
+      "status": "In Progress",
+      "github": "#",
+      "demo": "#",
+      "image": "/placeholder.svg?height=300&width=500",
+      "bullets": [
+        "Problem: Traditional dating apps rely on superficial swiping mechanisms",
+        "Approach: Implemented agentic AI for deep personality matching and conversation",
+        "Outcome: MVP with context-aware matchmaking and professional scheduling integration"
+      ]
+    },
+    {
+      "id": "multi-agent-dev",
+      "title": "Multi-Agent AI Developer Assistant",
+      "description": "LangGraph-supervised agentic coding copilot with multi-agent orchestration",
+      "longDescription": "Designing and developing a multi-agent orchestration layer coordinating FE/BE/QA/DevOps/Review agents using agent-to-agent (A2A) protocols and MCP tool servers, supported by PGVector memory, OTEL tracing, and LangSmith evaluation.",
+      "technologies": ["LangGraph", "PGVector", "OTEL", "LangSmith", "Multi-Agent Systems"],
+      "status": "In Progress",
+      "github": "#",
+      "demo": "#",
+      "image": "/placeholder.svg?height=300&width=500",
+      "bullets": [
+        "Problem: Fragmented development workflows across different specializations",
+        "Approach: Multi-agent system with specialized FE/BE/QA/DevOps agents",
+        "Outcome: Unified development copilot with automated testing and PR suggestions"
+      ]
+    }
+  ],
+  "other": [
+    {
+      "id": "deepquant-bot",
+      "title": "DeepQuant Trading Bot",
+      "description": "RL + deep learning trading engine with React UI",
+      "technologies": ["Reinforcement Learning", "React", "Spring Boot", "Binance API"],
+      "github": "#",
+      "demo": "#",
+      "bullets": [
+        "Problem: Manual crypto trading lacks speed and emotion-free decision making",
+        "Approach: Built RL-powered engine with real-time market data processing",
+        "Outcome: Automated trading with dynamic strategy switching and low-latency execution"
+      ]
+    },
+    {
+      "id": "news-aggregator",
+      "title": "News Aggregator Platform",
+      "description": "AI-powered bias detection and de-duplication",
+      "technologies": ["NLP", "Sentiment Analysis", "React", "Python", "News APIs"],
+      "github": "#",
+      "demo": "https://indiaunbiased.news/",
+      "bullets": [
+        "Problem: News bias and information fragmentation across sources",
+        "Approach: AI-powered aggregation with sentiment analysis and bias detection",
+        "Outcome: Deployed platform serving unbiased news with credibility scoring"
+      ]
+    }
+  ]
+}

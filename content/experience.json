@@ -1,0 +1,33 @@
+{
+  "positions": [
+    {
+      "title": "Tech Lead",
+      "company": "Protonix AI Pvt. Ltd.",
+      "location": "Remote",
+      "period": "May 2025 – Present",
+      "type": "Full-time",
+      "achievements": [
+        "Leading AI/full-stack team, enforcing coding and architectural best practices",
+        "Designed secure, scalable MLOps pipelines and containerized CI/CD workflows",
+        "Architected back-end systems for real-time, low-latency data processing",
+        "Drove front-end UX/API integration and performance tuning",
+        "Conducted code/design reviews, tracked reliability metrics, and organized workshops"
+      ],
+      "technologies": ["Python", "React", "MLOps", "Docker", "Kubernetes", "CI/CD"]
+    },
+    {
+      "title": "AI Full Stack Developer Intern",
+      "company": "Protonix AI Pvt. Ltd.",
+      "location": "Remote",
+      "period": "Jan 2025 – Apr 2025",
+      "type": "Internship",
+      "achievements": [
+        "Built hybrid AI-based crypto trading engine with RL models and React/Spring Boot stack",
+        "Automated real-estate analytics: scraping, trend analysis, and reporting",
+        "Developed Flask/Node.js APIs for high-frequency ingestion and dashboarding",
+        "Adopted MLOps best practices: CI/CD, unit tests, documentation"
+      ],
+      "technologies": ["React", "Spring Boot", "Flask", "Node.js", "RL", "MLOps"]
+    }
+  ]
+}
