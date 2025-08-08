@@ -27,8 +27,15 @@ export async function GET(request: Request) {
     try {
       const imagePath = path.join(process.cwd(), 'public', 'Ayush-golakiya.jpeg')
       const imageBuffer = fs.readFileSync(imagePath)
-      photoData = imageBuffer.toString('base64')
-      photoUrl = `${website}/Ayush-golakiya.jpeg`
+      
+      // For iOS, use URL approach as base64 can be problematic
+      if (isIOS) {
+        photoUrl = `${website}/Ayush-golakiya.jpeg`
+      } else {
+        // For other platforms, use base64
+        photoData = imageBuffer.toString('base64')
+        photoUrl = `${website}/Ayush-golakiya.jpeg`
+      }
     } catch (error) {
       console.log('Could not read image file')
     }
@@ -45,21 +52,21 @@ export async function GET(request: Request) {
     if (website) vCard += `URL;TYPE=homepage:${website}\n`
     
     // Platform-specific image handling
-    if (photoData && photoUrl) {
+    if (photoData || photoUrl) {
       if (isIOS) {
-        // iOS prefers base64 encoding for better compatibility
-        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+        // iOS: Use URL with proper headers
+        vCard += `PHOTO;VALUE=URI;TYPE=JPEG:${photoUrl}\n`
       } else if (isAndroid) {
-        // Android works well with both, but URL is often preferred for performance
+        // Android: URL approach
         vCard += `PHOTO;VALUE=URI:${photoUrl}\n`
       } else if (isWindows) {
-        // Windows often prefers base64 for Outlook compatibility
+        // Windows: Base64 for Outlook
         vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
       } else if (isMac) {
-        // macOS works well with both, base64 for better compatibility
+        // macOS: Base64 for Contacts app
         vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
       } else {
-        // Default to base64 for maximum compatibility
+        // Default: Base64
         vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
       }
     }
