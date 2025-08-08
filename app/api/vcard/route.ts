@@ -90,7 +90,6 @@ export async function GET(request: Request) {
     
     // Essential fields for compatibility
     vCard += `TITLE:AI Developer\n`
-    vCard += `ORG:${fullName.split(' ')[0]} Portfolio\n`
     vCard += `CATEGORIES:Portfolio,Developer,AI\n`
     vCard += `UID:${fullName.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}\n`
     vCard += `REV:${new Date().toISOString()}\n`
