@@ -56,63 +56,43 @@ export async function GET(request: Request) {
       photoUrl = `${website}/Ayush-golakiya.jpeg`
     }
 
-    // Generate vCard with maximum backward compatibility
+    // Generate vCard with clean, non-duplicated fields
     let vCard = 'BEGIN:VCARD\n'
     vCard += 'VERSION:3.0\n'
     vCard += `FN:${fullName}\n`
     vCard += `N:${fullName.split(' ').pop() || ''};${fullName.split(' ').slice(0, -1).join(' ') || ''};;;\n`
     vCard += `EMAIL:${email}\n`
     
-    // Phone with multiple formats for compatibility
+    // Phone - single entry with CELL type (most compatible)
     if (phone) {
       vCard += `TEL;TYPE=CELL:${phone}\n`
-      vCard += `TEL;TYPE=WORK:${phone}\n` // Some older systems need WORK type
     }
     
-    // URLs with multiple formats for compatibility
+    // URLs - single entry per URL with appropriate type
     if (github) {
       vCard += `URL;TYPE=github:${github}\n`
-      vCard += `URL:${github}\n` // Fallback without type
     }
     if (linkedin) {
       vCard += `URL;TYPE=linkedin:${linkedin}\n`
-      vCard += `URL:${linkedin}\n` // Fallback without type
     }
     if (website) {
       vCard += `URL;TYPE=homepage:${website}\n`
-      vCard += `URL:${website}\n` // Fallback without type
     }
     
-    // Add image with multiple fallback formats
+    // Image - single entry based on platform
     if (photoData && !isOldIOS && !isOldAndroid && !isOldWindows && !isOldMac) {
       // Modern platforms: Use base64
       vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
     } else if (photoUrl) {
       // Older platforms and fallback: Use URL
       vCard += `PHOTO;VALUE=URI;TYPE=JPEG:${photoUrl}\n`
-      // Some very old systems need this format
-      vCard += `PHOTO:${photoUrl}\n`
     }
     
-    // Add additional fields for better compatibility
+    // Essential fields for compatibility
     vCard += `TITLE:AI Developer\n`
-    
-    // Add organization for older systems that expect it
     vCard += `ORG:${fullName.split(' ')[0]} Portfolio\n`
-    
-    // Add address fields that some older systems require
-    vCard += `ADR;TYPE=WORK:;;;${fullName.split(' ')[0]} Portfolio;;;;\n`
-    
-    // Add note for additional context
-    vCard += `NOTE:Portfolio: ${website}\n`
-    
-    // Add categories for better organization
     vCard += `CATEGORIES:Portfolio,Developer,AI\n`
-    
-    // Add UID for uniqueness (some systems require this)
     vCard += `UID:${fullName.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}\n`
-    
-    // Add revision date
     vCard += `REV:${new Date().toISOString()}\n`
     
     vCard += 'END:VCARD'
