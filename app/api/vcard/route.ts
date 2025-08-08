@@ -20,8 +20,33 @@ export async function GET(request: Request) {
     const isWindows = /Windows/.test(userAgent)
     const isMac = /Macintosh|Mac OS X/.test(userAgent)
     
-    // For now, let's create a basic vCard without image to test iOS compatibility
-    // We'll add image back once we confirm the basic vCard works
+    // For iOS, use URL approach as it's more reliable
+    // For other platforms, use base64 with size optimization
+    let photoData = ''
+    let photoUrl = ''
+    
+    if (isIOS) {
+      // iOS: Use URL approach - more reliable than base64
+      photoUrl = `${website}/Ayush-golakiya.jpeg`
+    } else {
+      // Other platforms: Use base64 but with size check
+      try {
+        const imagePath = path.join(process.cwd(), 'public', 'Ayush-golakiya.jpeg')
+        const imageBuffer = fs.readFileSync(imagePath)
+        
+        // Check if image is small enough for base64 encoding
+        const imageSizeKB = imageBuffer.length / 1024
+        if (imageSizeKB <= 150) { // Keep under 150KB to ensure base64 stays under 200KB
+          photoData = imageBuffer.toString('base64')
+        } else {
+          // If too large, use URL approach
+          photoUrl = `${website}/Ayush-golakiya.jpeg`
+        }
+      } catch (error) {
+        console.log('Could not read image file, using URL')
+        photoUrl = `${website}/Ayush-golakiya.jpeg`
+      }
+    }
 
     // Generate vCard with platform-specific optimizations
     let vCard = 'BEGIN:VCARD\n'
@@ -33,6 +58,15 @@ export async function GET(request: Request) {
     if (github) vCard += `URL;TYPE=github:${github}\n`
     if (linkedin) vCard += `URL;TYPE=linkedin:${linkedin}\n`
     if (website) vCard += `URL;TYPE=homepage:${website}\n`
+    
+    // Add image based on platform
+    if (photoData) {
+      // Use base64 for platforms that support it well
+      vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+    } else if (photoUrl) {
+      // Use URL for iOS and when image is too large
+      vCard += `PHOTO;VALUE=URI;TYPE=JPEG:${photoUrl}\n`
+    }
     
     // Add additional fields for better compatibility
     vCard += `TITLE:AI Developer\n`
