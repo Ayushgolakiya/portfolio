@@ -91,12 +91,15 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-primary-light text-fluid-lg">Email</p>
-                      <a
-                        href="mailto:golakiyaayush29@gmail.com"
-                        className="text-secondary-light hover:text-accent transition-colors duration-200 hover-glow-purple text-fluid-base"
-                      >
-                        golakiyaayush29@gmail.com
-                      </a>
+                      <div className="flex flex-col gap-2">
+                        <a
+                          href="mailto:golakiyaayush29@gmail.com"
+                          className="text-secondary-light hover:text-accent transition-colors duration-200 hover-glow-purple text-fluid-base"
+                        >
+                          golakiyaayush29@gmail.com
+                        </a>
+
+                      </div>
                     </div>
                   </div>
 
@@ -130,13 +133,13 @@ export function Contact() {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Card className="card-fluid bg-card/50 backdrop-blur-sm border-border h-full hover-scale">
-                <h3 className="text-fluid-3xl font-bold mb-fluid-8 text-accent hover-glow-purple">Send a Message</h3>
+              <Card className="p-6 bg-card/50 backdrop-blur-sm border-border h-full hover-scale">
+                <h3 className="text-2xl font-bold mb-6 text-accent hover-glow-purple">Send a Message</h3>
 
-                <form onSubmit={handleSubmit} className="space-fluid-6">
-                  <div className="grid sm:grid-cols-2 space-fluid-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="name" className="block text-fluid-sm font-medium mb-fluid-2 text-primary-light">
+                      <label htmlFor="name" className="block text-sm font-medium mb-2 text-primary-light">
                         Name
                       </label>
                       <Input
@@ -146,11 +149,11 @@ export function Contact() {
                         onChange={handleInputChange}
                         placeholder="Your name"
                         required
-                        className="bg-background/50 border-border focus:border-accent transition-colors duration-200 text-primary-light placeholder:text-muted-light h-12 text-fluid-base"
+                        className="bg-background/50 border-border focus:border-accent transition-colors duration-200 text-primary-light placeholder:text-muted-light h-10 text-sm"
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-fluid-sm font-medium mb-fluid-2 text-primary-light">
+                      <label htmlFor="email" className="block text-sm font-medium mb-2 text-primary-light">
                         Email
                       </label>
                       <Input
@@ -161,13 +164,13 @@ export function Contact() {
                         onChange={handleInputChange}
                         placeholder="your@email.com"
                         required
-                        className="bg-background/50 border-border focus:border-accent transition-colors duration-200 text-primary-light placeholder:text-muted-light h-12 text-fluid-base"
+                        className="bg-background/50 border-border focus:border-accent transition-colors duration-200 text-primary-light placeholder:text-muted-light h-10 text-sm"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-fluid-sm font-medium mb-fluid-2 text-primary-light">
+                    <label htmlFor="subject" className="block text-sm font-medium mb-2 text-primary-light">
                       Subject
                     </label>
                     <Input
@@ -177,12 +180,12 @@ export function Contact() {
                       onChange={handleInputChange}
                       placeholder="What's this about?"
                       required
-                      className="bg-background/50 border-border focus:border-accent transition-colors duration-200 text-primary-light placeholder:text-muted-light h-12 text-fluid-base"
+                      className="bg-background/50 border-border focus:border-accent transition-colors duration-200 text-primary-light placeholder:text-muted-light h-10 text-sm"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-fluid-sm font-medium mb-fluid-2 text-primary-light">
+                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-primary-light">
                       Message
                     </label>
                     <Textarea
@@ -191,18 +194,18 @@ export function Contact() {
                       value={formData.message}
                       onChange={handleInputChange}
                       placeholder="Tell me about your project or opportunity..."
-                      rows={8}
+                      rows={6}
                       required
-                      className="bg-background/50 border-border focus:border-accent transition-colors duration-200 resize-none text-primary-light placeholder:text-muted-light text-fluid-base"
+                      className="bg-background/50 border-border focus:border-accent transition-colors duration-200 resize-none text-primary-light placeholder:text-muted-light text-sm"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="button-fluid w-full bg-accent hover:bg-accent-secondary text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/25 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-accent hover:bg-accent-secondary text-black font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent/25 disabled:opacity-50 disabled:cursor-not-allowed h-10"
                   >
-                    <Send className="w-5 h-5 mr-2" />
+                    <Send className="w-4 h-4 mr-2" />
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>

@@ -81,7 +81,7 @@ export function Awards() {
           title: "Donation Team Leadership",
           detail: "Led 40-member team",
           institution: "Community Service",
-          year: "2023",
+          year: "2023, 2024, 2025",
         },
       ],
     },
@@ -90,15 +90,28 @@ export function Awards() {
       icon: Presentation,
       items: [
         {
-          title: "Agnirva AI Internship Program",
+          title: "THE AGNIRVA SPACE INTERNSHIP PROGRAM",
           detail: "AICTE Recognized",
           institution: "Agnirva Space",
           year: "2025",
         },
         {
+          title: "Agnirva AI Internship Program",
+          detail: "AI Training Program",
+          institution: "Agnirva Space",
+          year: "2025",
+        },
+
+        {
           title: "Game Development",
           detail: "Certification",
           institution: "IIT Bombay",
+          year: "2024",
+        },
+        {
+          title: "CodeCrunch24 Hackathon",
+          detail: "Participant",
+          institution: "GLA University",
           year: "2024",
         },
         {
@@ -112,6 +125,12 @@ export function Awards() {
           detail: "Certification",
           institution: "Max Computer, Mumbai",
           year: "2022",
+        },
+        {
+          title: "Project Startup Plan",
+          detail: "School Project",
+          institution: "Amarjyoti Saraswati School",
+          year: "2020",
         },
       ],
     },

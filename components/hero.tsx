@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { Github, Linkedin, Mail, ArrowRight } from "lucide-react"
+import { Github, Linkedin, Mail, ArrowRight, UserPlus } from "lucide-react"
 import { useState, useEffect } from "react"
 
 export function Hero() {
@@ -10,6 +10,7 @@ export function Hero() {
     { icon: Github, href: "https://github.com/Ayushgolakiya", label: "GitHub" },
     { icon: Linkedin, href: "https://www.linkedin.com/in/ayush-golakiya-a03407255/", label: "LinkedIn" },
     { icon: Mail, href: "mailto:golakiyaayush29@gmail.com", label: "Email" },
+    { icon: UserPlus, href: "/api/vcard", label: "Save Contact" },
   ]
 
   const heroTexts = [

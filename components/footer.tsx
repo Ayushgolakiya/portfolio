@@ -1,13 +1,14 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Github, Linkedin, Mail, Heart } from "lucide-react"
+import { Github, Linkedin, Mail, Heart, UserPlus } from "lucide-react"
 
 export function Footer() {
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/Ayushgolakiya", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ayush-golakiya-a03407255/", label: "LinkedIn" },
     { icon: Mail, href: "mailto:golakiyaayush29@gmail.com", label: "Email" },
+    { icon: UserPlus, href: "/api/vcard", label: "Save Contact" },
   ]
 
   return (
