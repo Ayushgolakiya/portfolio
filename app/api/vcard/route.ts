@@ -66,7 +66,6 @@ export async function GET(request: Request) {
     
     // Add additional fields for better compatibility
     vCard += `TITLE:AI Developer\n`
-    vCard += `NOTE:Portfolio: ${website}\n`
     vCard += 'END:VCARD'
 
     return new NextResponse(vCard, {
