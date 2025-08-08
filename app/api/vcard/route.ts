@@ -65,8 +65,7 @@ export async function GET(request: Request) {
     }
     
     // Add additional fields for better compatibility
-    vCard += `ORG:${fullName.split(' ')[0]} Portfolio\n`
-    vCard += `TITLE:Software Developer\n`
+    vCard += `TITLE:AI Developer\n`
     vCard += `NOTE:Portfolio: ${website}\n`
     vCard += 'END:VCARD'
 
