@@ -20,25 +20,8 @@ export async function GET(request: Request) {
     const isWindows = /Windows/.test(userAgent)
     const isMac = /Macintosh|Mac OS X/.test(userAgent)
     
-    // Platform-specific image handling
-    let photoData = ''
-    let photoUrl = ''
-    
-    try {
-      const imagePath = path.join(process.cwd(), 'public', 'Ayush-golakiya.jpeg')
-      const imageBuffer = fs.readFileSync(imagePath)
-      
-      // For iOS, use URL approach as base64 can be problematic
-      if (isIOS) {
-        photoUrl = `${website}/Ayush-golakiya.jpeg`
-      } else {
-        // For other platforms, use base64
-        photoData = imageBuffer.toString('base64')
-        photoUrl = `${website}/Ayush-golakiya.jpeg`
-      }
-    } catch (error) {
-      console.log('Could not read image file')
-    }
+    // For now, let's create a basic vCard without image to test iOS compatibility
+    // We'll add image back once we confirm the basic vCard works
 
     // Generate vCard with platform-specific optimizations
     let vCard = 'BEGIN:VCARD\n'
@@ -50,26 +33,6 @@ export async function GET(request: Request) {
     if (github) vCard += `URL;TYPE=github:${github}\n`
     if (linkedin) vCard += `URL;TYPE=linkedin:${linkedin}\n`
     if (website) vCard += `URL;TYPE=homepage:${website}\n`
-    
-    // Platform-specific image handling
-    if (photoData || photoUrl) {
-      if (isIOS) {
-        // iOS: Use URL with proper headers
-        vCard += `PHOTO;VALUE=URI;TYPE=JPEG:${photoUrl}\n`
-      } else if (isAndroid) {
-        // Android: URL approach
-        vCard += `PHOTO;VALUE=URI:${photoUrl}\n`
-      } else if (isWindows) {
-        // Windows: Base64 for Outlook
-        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
-      } else if (isMac) {
-        // macOS: Base64 for Contacts app
-        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
-      } else {
-        // Default: Base64
-        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
-      }
-    }
     
     // Add additional fields for better compatibility
     vCard += `TITLE:AI Developer\n`
