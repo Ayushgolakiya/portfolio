@@ -10,7 +10,7 @@ export async function GET() {
     const github = process.env.NEXT_PUBLIC_VCARD_GITHUB || 'https://github.com/Ayushgolakiya'
     const linkedin = process.env.NEXT_PUBLIC_VCARD_LINKEDIN || 'https://www.linkedin.com/in/ayush-golakiya-a03407255/'
     const website = process.env.NEXT_PUBLIC_VCARD_WEBSITE || 'https://portfolio-eight-henna-42.vercel.app/'
-    const photoUrl = process.env.NEXT_PUBLIC_VCARD_PHOTO || '/Ayush-golakiya.jpeg'
+    const photoUrl = process.env.NEXT_PUBLIC_VCARD_PHOTO || `${website}/Ayush-golakiya.jpeg`
 
     // Generate vCard manually
     let vCard = 'BEGIN:VCARD\n'
