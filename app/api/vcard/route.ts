@@ -8,8 +8,9 @@ export async function GET() {
     const email = process.env.NEXT_PUBLIC_VCARD_EMAIL || 'golakiyaayush29@gmail.com'
     const phone = process.env.NEXT_PUBLIC_VCARD_PHONE || '+916355009344'
     const github = process.env.NEXT_PUBLIC_VCARD_GITHUB || 'https://github.com/Ayushgolakiya'
+    const linkedin = process.env.NEXT_PUBLIC_VCARD_LINKEDIN || 'https://www.linkedin.com/in/ayush-golakiya-a03407255/'
     const website = process.env.NEXT_PUBLIC_VCARD_WEBSITE || 'https://portfolio-eight-henna-42.vercel.app/'
-    const photoUrl = process.env.NEXT_PUBLIC_VCARD_PHOTO || ''
+    const photoUrl = process.env.NEXT_PUBLIC_VCARD_PHOTO || '/Ayush-golakiya.jpeg'
 
     // Generate vCard manually
     let vCard = 'BEGIN:VCARD\n'
@@ -18,8 +19,9 @@ export async function GET() {
     vCard += `N:${fullName.split(' ').pop() || ''};${fullName.split(' ').slice(0, -1).join(' ') || ''};;;\n`
     vCard += `EMAIL:${email}\n`
     if (phone) vCard += `TEL;TYPE=CELL:${phone}\n`
-    if (github) vCard += `URL:${github}\n`
-    if (website) vCard += `URL:${website}\n`
+    if (github) vCard += `URL;TYPE=github:${github}\n`
+    if (linkedin) vCard += `URL;TYPE=linkedin:${linkedin}\n`
+    if (website) vCard += `URL;TYPE=homepage:${website}\n`
     if (photoUrl) vCard += `PHOTO;VALUE=URI:${photoUrl}\n`
     vCard += 'END:VCARD'
 
