@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server'
+import fs from 'fs'
+import path from 'path'
 
 export const dynamic = 'force-dynamic'
 
@@ -10,7 +12,17 @@ export async function GET() {
     const github = process.env.NEXT_PUBLIC_VCARD_GITHUB || 'https://github.com/Ayushgolakiya'
     const linkedin = process.env.NEXT_PUBLIC_VCARD_LINKEDIN || 'https://www.linkedin.com/in/ayush-golakiya-a03407255/'
     const website = process.env.NEXT_PUBLIC_VCARD_WEBSITE || 'https://portfolio-eight-henna-42.vercel.app/'
-    const photoUrl = process.env.NEXT_PUBLIC_VCARD_PHOTO || `${website}/Ayush-golakiya.jpeg`
+    
+    // Read and encode the image as base64
+    let photoData = ''
+    try {
+      const imagePath = path.join(process.cwd(), 'public', 'Ayush-golakiya.jpeg')
+      const imageBuffer = fs.readFileSync(imagePath)
+      photoData = imageBuffer.toString('base64')
+    } catch (error) {
+      console.log('Could not read image file, using URL instead')
+      const photoUrl = process.env.NEXT_PUBLIC_VCARD_PHOTO || `${website}/Ayush-golakiya.jpeg`
+    }
 
     // Generate vCard manually
     let vCard = 'BEGIN:VCARD\n'
@@ -22,7 +34,9 @@ export async function GET() {
     if (github) vCard += `URL;TYPE=github:${github}\n`
     if (linkedin) vCard += `URL;TYPE=linkedin:${linkedin}\n`
     if (website) vCard += `URL;TYPE=homepage:${website}\n`
-    if (photoUrl) vCard += `PHOTO;VALUE=URI:${photoUrl}\n`
+    if (photoData) {
+      vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+    }
     vCard += 'END:VCARD'
 
     return new NextResponse(vCard, {
