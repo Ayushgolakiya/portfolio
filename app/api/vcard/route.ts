@@ -4,7 +4,7 @@ import path from 'path'
 
 export const dynamic = 'force-dynamic'
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const fullName = process.env.NEXT_PUBLIC_VCARD_NAME || 'Ayush Golakiya'
     const email = process.env.NEXT_PUBLIC_VCARD_EMAIL || 'golakiyaayush29@gmail.com'
@@ -13,18 +13,27 @@ export async function GET() {
     const linkedin = process.env.NEXT_PUBLIC_VCARD_LINKEDIN || 'https://www.linkedin.com/in/ayush-golakiya-a03407255/'
     const website = process.env.NEXT_PUBLIC_VCARD_WEBSITE || 'https://portfolio-eight-henna-42.vercel.app/'
     
-    // Read and encode the image as base64
+    // Get user agent to detect platform
+    const userAgent = request.headers.get('user-agent') || ''
+    const isIOS = /iPhone|iPad|iPod/.test(userAgent)
+    const isAndroid = /Android/.test(userAgent)
+    const isWindows = /Windows/.test(userAgent)
+    const isMac = /Macintosh|Mac OS X/.test(userAgent)
+    
+    // Platform-specific image handling
     let photoData = ''
+    let photoUrl = ''
+    
     try {
       const imagePath = path.join(process.cwd(), 'public', 'Ayush-golakiya.jpeg')
       const imageBuffer = fs.readFileSync(imagePath)
       photoData = imageBuffer.toString('base64')
+      photoUrl = `${website}/Ayush-golakiya.jpeg`
     } catch (error) {
-      console.log('Could not read image file, using URL instead')
-      const photoUrl = process.env.NEXT_PUBLIC_VCARD_PHOTO || `${website}/Ayush-golakiya.jpeg`
+      console.log('Could not read image file')
     }
 
-    // Generate vCard manually
+    // Generate vCard with platform-specific optimizations
     let vCard = 'BEGIN:VCARD\n'
     vCard += 'VERSION:3.0\n'
     vCard += `FN:${fullName}\n`
@@ -34,9 +43,31 @@ export async function GET() {
     if (github) vCard += `URL;TYPE=github:${github}\n`
     if (linkedin) vCard += `URL;TYPE=linkedin:${linkedin}\n`
     if (website) vCard += `URL;TYPE=homepage:${website}\n`
-    if (photoData) {
-      vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+    
+    // Platform-specific image handling
+    if (photoData && photoUrl) {
+      if (isIOS) {
+        // iOS prefers base64 encoding for better compatibility
+        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+      } else if (isAndroid) {
+        // Android works well with both, but URL is often preferred for performance
+        vCard += `PHOTO;VALUE=URI:${photoUrl}\n`
+      } else if (isWindows) {
+        // Windows often prefers base64 for Outlook compatibility
+        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+      } else if (isMac) {
+        // macOS works well with both, base64 for better compatibility
+        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+      } else {
+        // Default to base64 for maximum compatibility
+        vCard += `PHOTO;ENCODING=BASE64;TYPE=JPEG:${photoData}\n`
+      }
     }
+    
+    // Add additional fields for better compatibility
+    vCard += `ORG:${fullName.split(' ')[0]} Portfolio\n`
+    vCard += `TITLE:Software Developer\n`
+    vCard += `NOTE:Portfolio: ${website}\n`
     vCard += 'END:VCARD'
 
     return new NextResponse(vCard, {
@@ -45,6 +76,9 @@ export async function GET() {
         'Content-Type': 'text/vcard; charset=utf-8',
         'Content-Disposition': 'attachment; filename="Ayush_Golakiya.vcf"',
         'Cache-Control': 'no-store',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET',
+        'Access-Control-Allow-Headers': 'Content-Type',
       },
     })
   } catch (error) {
