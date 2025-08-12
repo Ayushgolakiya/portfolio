@@ -25,23 +25,21 @@ export function About() {
               className="prose prose-lg max-w-none leading-relaxed"
             >
               <p className="text-fluid-lg mb-fluid-6 text-primary leading-relaxed">
-                I'm an aspiring AI & ML engineer with a strong foundation in full-stack development, MLOps, and
-                cloud-native architectures. Currently serving as Tech Lead at{" "}
-                <span className="text-accent font-semibold hover-glow-purple">Protonix AI</span>, I lead
-                cross-functional teams in building scalable AI systems that solve real-world problems.
+                I'm a Mechatronics Engineering Technology student at Purdue with hands-on experience in mechanical
+                systems, electronics, PLCs, and control systems. I design, develop, and integrate automated and
+                electromechanical systems that improve reliability, safety, and performance.
               </p>
 
               <p className="text-fluid-lg mb-fluid-6 text-secondary leading-relaxed">
-                My expertise spans from designing secure MLOps pipelines and containerized CI/CD workflows to
-                architecting high-performance backend systems for real-time data processing. I've successfully delivered
-                projects ranging from face-recognition attendance systems to autonomous crypto trading engines powered
-                by reinforcement learning.
+                My projects span PLC‑driven HMIs, motion and vibration sensing PCBs, and safety‑focused control logic
+                for industrial scenarios. I enjoy bridging mechanics, sensors, and embedded software to ship practical
+                solutions.
               </p>
 
               <p className="text-fluid-lg text-secondary leading-relaxed">
-                With a passion for trustworthy AI systems, I'm pursuing advanced studies in AI, ML, and Data Science,
-                focusing on applications in health-tech and sustainability. I believe in building technology that not
-                only performs exceptionally but also creates meaningful impact for users and society.
+                Core strengths include CAD, circuit design, sensor integration, and troubleshooting. I'm seeking
+                opportunities in automation, robotics, and industrial control where I can contribute to building
+                dependable systems end‑to‑end.
               </p>
             </motion.div>
           </Card>

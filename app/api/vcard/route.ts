@@ -6,12 +6,14 @@ export const dynamic = 'force-dynamic'
 
 export async function GET(request: Request) {
   try {
-    const fullName = process.env.NEXT_PUBLIC_VCARD_NAME || 'Ayush Golakiya'
-    const email = process.env.NEXT_PUBLIC_VCARD_EMAIL || 'golakiyaayush29@gmail.com'
-    const phone = process.env.NEXT_PUBLIC_VCARD_PHONE || '+916355009344'
-    const github = process.env.NEXT_PUBLIC_VCARD_GITHUB || 'https://github.com/Ayushgolakiya'
-    const linkedin = process.env.NEXT_PUBLIC_VCARD_LINKEDIN || 'https://www.linkedin.com/in/ayush-golakiya-a03407255/'
-    const website = process.env.NEXT_PUBLIC_VCARD_WEBSITE || 'https://portfolio-eight-henna-42.vercel.app/'
+    const requestUrl = new URL(request.url)
+    const origin = requestUrl.origin
+    const fullName = process.env.NEXT_PUBLIC_VCARD_NAME || 'Taksh Golakiya'
+    const email = process.env.NEXT_PUBLIC_VCARD_EMAIL || 'tgolakiy@purdue.edu'
+    const phone = process.env.NEXT_PUBLIC_VCARD_PHONE || '+16307654863'
+    const github = process.env.NEXT_PUBLIC_VCARD_GITHUB || ''
+    const linkedin = process.env.NEXT_PUBLIC_VCARD_LINKEDIN || 'https://linkedin.com/in/takshgolakiya'
+    const website = process.env.NEXT_PUBLIC_VCARD_WEBSITE || origin
     
     // Get user agent to detect platform and version
     const userAgent = request.headers.get('user-agent') || ''
@@ -35,8 +37,11 @@ export async function GET(request: Request) {
     let photoData = ''
     let photoUrl = ''
     
+    // Get photo from environment variable or use default
+    const photoFileName = process.env.NEXT_PUBLIC_VCARD_PHOTO || 'placeholder-user.jpg'
+    
     try {
-      const imagePath = path.join(process.cwd(), 'public', 'Ayush-golakiya.jpeg')
+      const imagePath = path.join(process.cwd(), 'public', photoFileName)
       const imageBuffer = fs.readFileSync(imagePath)
       const imageSizeKB = imageBuffer.length / 1024
       
@@ -50,10 +55,10 @@ export async function GET(request: Request) {
       }
       
       // Always have URL as fallback
-      photoUrl = `${website}/Ayush-golakiya.jpeg`
+      photoUrl = `${website}/${photoFileName}`
     } catch (error) {
-      console.log('Could not read image file, using URL only')
-      photoUrl = `${website}/Ayush-golakiya.jpeg`
+      console.log(`Could not read image file ${photoFileName}, using URL only`)
+      photoUrl = `${website}/${photoFileName}`
     }
 
     // Generate vCard with clean, non-duplicated fields
@@ -69,9 +74,6 @@ export async function GET(request: Request) {
     }
     
     // URLs - single entry per URL with appropriate type
-    if (github) {
-      vCard += `URL;TYPE=github:${github}\n`
-    }
     if (linkedin) {
       vCard += `URL;TYPE=linkedin:${linkedin}\n`
     }
@@ -89,8 +91,8 @@ export async function GET(request: Request) {
     }
     
     // Essential fields for compatibility
-    vCard += `TITLE:AI Developer\n`
-    vCard += `CATEGORIES:Portfolio,Developer,AI\n`
+    vCard += `TITLE:Mechatronics Engineering Technology\n`
+    vCard += `CATEGORIES:Portfolio,Mechatronics,Automation\n`
     vCard += `UID:${fullName.toLowerCase().replace(/\s+/g, '-')}-${Date.now()}\n`
     vCard += `REV:${new Date().toISOString()}\n`
     
@@ -100,7 +102,7 @@ export async function GET(request: Request) {
       status: 200,
       headers: {
         'Content-Type': 'text/vcard; charset=utf-8',
-        'Content-Disposition': 'attachment; filename="Ayush_Golakiya.vcf"',
+        'Content-Disposition': 'attachment; filename="Taksh_Golakiya.vcf"',
         'Cache-Control': 'no-store',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET',

@@ -7,17 +7,16 @@ import { useState, useEffect } from "react"
 
 export function Hero() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com/Ayushgolakiya", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/ayush-golakiya-a03407255/", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:golakiyaayush29@gmail.com", label: "Email" },
+    { icon: Linkedin, href: "https://linkedin.com/in/takshgolakiya", label: "LinkedIn" },
+    { icon: Mail, href: "mailto:tgolakiy@purdue.edu", label: "Email" },
     { icon: UserPlus, href: "/api/vcard", label: "Save Contact" },
   ]
 
   const heroTexts = [
-    "Building Intelligent Systems That Matter",
-    "Crafting AI Solutions for Tomorrow",
-    "Engineering the Future with ML",
-    "Transforming Ideas into AI Reality",
+    "Designing Smart Electromechanical Systems",
+    "Integrating PLCs, Sensors, and Control",
+    "Engineering Reliable Automation",
+    "Bridging Mechanics, Electronics, and Software",
   ]
 
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
@@ -86,16 +85,16 @@ export function Hero() {
             </span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-fluid-lg sm:text-fluid-xl text-secondary mb-fluid-8 sm:mb-fluid-12 max-w-4xl mx-auto leading-relaxed px-fluid-4"
-          >
-            AI/ML Engineer & Tech Lead at Protonix AI • Full-Stack Developer • MLOps Specialist
-            <br />
-            <span className="text-accent hover-glow-purple">Transforming ideas into production-ready AI solutions</span>
-          </motion.p>
+                     <motion.p
+             initial={{ opacity: 0, y: 20 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 0.8, delay: 0.4 }}
+             className="text-fluid-lg sm:text-fluid-xl text-secondary mb-fluid-8 sm:mb-fluid-12 max-w-4xl mx-auto leading-relaxed px-fluid-4"
+           >
+             Mechatronics Engineering Technology • Mechanical Systems • Electronics • PLCs • Control Systems
+             <br />
+             <span className="text-accent hover-glow-purple">Designing reliable automation and electromechanical solutions</span>
+           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -113,8 +112,11 @@ export function Hero() {
             <Button
               variant="outline"
               className="button-fluid border-accent text-accent hover:bg-accent hover:text-black rounded-full transition-all duration-300 hover:scale-105 bg-transparent hover:shadow-lg hover:shadow-accent/25"
+              asChild
             >
-              Download Resume
+              <a href="/Taksh Golakiya — Combined Resume (2025)[1].pdf" download>
+                Download Resume
+              </a>
             </Button>
           </motion.div>
 

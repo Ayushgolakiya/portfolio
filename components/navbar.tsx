@@ -51,7 +51,7 @@ export function Navbar() {
             whileHover={{ scale: 1.05 }}
             className="text-xl font-bold text-gradient-purple hover-glow-purple cursor-pointer"
           >
-            Ayush Golakiya
+            Taksh Golakiya
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -70,9 +70,12 @@ export function Navbar() {
               variant="outline"
               size="sm"
               className="border-accent text-accent hover:bg-accent hover:text-black transition-all duration-200 bg-transparent hover:shadow-lg hover:shadow-accent/25"
+              asChild
             >
-              <Download className="w-4 h-4 mr-2" />
-              Resume
+              <a href="/Taksh Golakiya — Combined Resume (2025)[1].pdf" download>
+                <Download className="w-4 h-4 mr-2" />
+                Resume
+              </a>
             </Button>
           </div>
 
@@ -115,9 +118,12 @@ export function Navbar() {
               variant="outline"
               size="sm"
               className="w-full mt-4 border-accent text-accent hover:bg-accent hover:text-black bg-transparent"
+              asChild
             >
-              <Download className="w-4 h-4 mr-2" />
-              Download Resume
+              <a href="/Taksh Golakiya — Combined Resume (2025)[1].pdf" download>
+                <Download className="w-4 h-4 mr-2" />
+                Download Resume
+              </a>
             </Button>
           </motion.div>
         )}

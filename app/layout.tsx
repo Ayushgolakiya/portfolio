@@ -5,8 +5,8 @@ import './globals.css'
 import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
-  title: 'Ayush Golakiya - AI/ML Engineer & Tech Lead',
-  description: 'AI/ML Engineer & Tech Lead at Protonix AI • Full-Stack Developer • MLOps Specialist',
+  title: 'Taksh Golakiya - Mechatronics Engineering Technology',
+  description: 'Mechatronics Engineering Technology student • Mechanical systems, electronics, PLCs, control systems, and automation',
   generator: 'v0.dev',
   viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
 }

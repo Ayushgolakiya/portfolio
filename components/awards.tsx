@@ -8,130 +8,46 @@ import { Trophy, Award, Users, Presentation } from "lucide-react"
 export function Awards() {
   const achievements = [
     {
-      category: "Academic Excellence",
-      icon: Trophy,
-      items: [
-        {
-          title: "Bachelor of Science in IT (AI & ML)",
-          detail: "CGPA: 8.64/10",
-          institution: "Auro University",
-          year: "2022-2025",
-        },
-        {
-          title: "12th ICSE",
-          detail: "88.2%",
-          institution: "Amarjyoti Saraswati International School",
-          year: "2021",
-        },
-      ],
-    },
-    {
-      category: "Competitions & Hackathons",
-      icon: Award,
-      items: [
-        {
-          title: "Technical Paper – IBM ICE Day 2024",
-          detail: "1st Place",
-          institution: "Deepfake Technology Research",
-          year: "2024",
-        },
-        {
-          title: "IBM ICE Poster Contest",
-          detail: "2nd Rank",
-          institution: "IBM",
-          year: "2024",
-        },
-        {
-          title: "CodeCrunch24 Hackathon",
-          detail: "Participant",
-          institution: "GLA University",
-          year: "2024",
-        },
-        {
-          title: "IBM IDEATHON 2025",
-          detail: "Team Participant",
-          institution: "IBM",
-          year: "2025",
-        },
-      ],
-    },
-    {
-      category: "Leadership & Events",
+      category: "Leadership & Involvement",
       icon: Users,
       items: [
-        {
-          title: "Festival of Learning 2023, 2024",
-          detail: "IT Head",
-          institution: "Auro University",
-          year: "2023-2024",
-        },
-        {
-          title: "New India Vibrant",
-          detail: "IT Head",
-          institution: "Event Management",
-          year: "2024",
-        },
-        {
-          title: "Gandhian Engineering",
-          detail: "IT Head",
-          institution: "Event Management",
-          year: "2024",
-        },
-        {
-          title: "Donation Team Leadership",
-          detail: "Led 40-member team",
-          institution: "Community Service",
-          year: "2023, 2024, 2025",
-        },
+        { title: "President", detail: "Parker Parliament", institution: "Leadership", year: "2024" },
+        { title: "Marketing Head", detail: "UR Global", institution: "Leadership", year: "2023" },
+        { title: "Captain", detail: "High School Throwball Team", institution: "Sports", year: "2022" },
+        { title: "Global Social Leader", detail: "Program Participant", institution: "Community", year: "2019" },
+        { title: "First in Maths", detail: "Academic Achievement", institution: "School", year: "2019" },
+        { title: "Raëll Padamsee’s Drama", detail: "Cultural", institution: "Drama", year: "2019" },
+        { title: "Callido", detail: "Program", institution: "Skill Development", year: "2019" },
+        { title: "Dr. Homi Bhabha Competition", detail: "Participant", institution: "Science", year: "2018" },
       ],
     },
     {
-      category: "Certifications & Training",
+      category: "Community Service",
+      icon: Trophy,
+      items: [
+        { title: "Goonj NGO", detail: "Volunteer", institution: "NGO", year: "2020" },
+        { title: "Habitat for Humanity", detail: "Volunteer", institution: "NGO", year: "2020" },
+        { title: "Run For Hunger", detail: "Volunteer", institution: "Community", year: "2018" },
+        { title: "Swachh Bharat Mission", detail: "Volunteer", institution: "Community", year: "2018" },
+      ],
+    },
+    {
+      category: "Certifications",
       icon: Presentation,
       items: [
-        {
-          title: "THE AGNIRVA SPACE INTERNSHIP PROGRAM",
-          detail: "AICTE Recognized",
-          institution: "Agnirva Space",
-          year: "2025",
-        },
-        {
-          title: "Agnirva AI Internship Program",
-          detail: "AI Training Program",
-          institution: "Agnirva Space",
-          year: "2025",
-        },
-
-        {
-          title: "Game Development",
-          detail: "Certification",
-          institution: "IIT Bombay",
-          year: "2024",
-        },
-        {
-          title: "CodeCrunch24 Hackathon",
-          detail: "Participant",
-          institution: "GLA University",
-          year: "2024",
-        },
-        {
-          title: "Machine Learning Tools",
-          detail: "Workshop",
-          institution: "Auro University",
-          year: "2023",
-        },
-        {
-          title: "C & C++, Python",
-          detail: "Certification",
-          institution: "Max Computer, Mumbai",
-          year: "2022",
-        },
-        {
-          title: "Project Startup Plan",
-          detail: "School Project",
-          institution: "Amarjyoti Saraswati School",
-          year: "2020",
-        },
+        { title: "RoboGenius", detail: "Certification", institution: "Robotics", year: "" },
+        { title: "PLC", detail: "Certification", institution: "Automation", year: "" },
+        { title: "PCB Designing", detail: "Certification", institution: "Electronics", year: "" },
+        { title: "Entrepreneurship", detail: "Certification", institution: "Business", year: "" },
+        { title: "C, C++, Python Programming", detail: "Certification", institution: "Max Computer, Mumbai", year: "2022" },
+        { title: "Callido (Technology Integration)", detail: "Certification", institution: "Skill", year: "" },
+      ],
+    },
+    {
+      category: "Awards",
+      icon: Award,
+      items: [
+        { title: "International Award for Young People", detail: "Award", institution: "", year: "2020" },
       ],
     },
   ]

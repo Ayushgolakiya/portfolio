@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     // In a production environment, you'd want to use a proper email service
     // like SendGrid, Resend, or Nodemailer with SMTP
     
-    const mailtoLink = `mailto:golakiyaayush29@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:tgolakiy@purdue.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
     )}`
 

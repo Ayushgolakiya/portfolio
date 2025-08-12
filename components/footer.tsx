@@ -5,9 +5,9 @@ import { Github, Linkedin, Mail, Heart, UserPlus } from "lucide-react"
 
 export function Footer() {
   const socialLinks = [
-    { icon: Github, href: "https://github.com/Ayushgolakiya", label: "GitHub" },
-    { icon: Linkedin, href: "https://www.linkedin.com/in/ayush-golakiya-a03407255/", label: "LinkedIn" },
-    { icon: Mail, href: "mailto:golakiyaayush29@gmail.com", label: "Email" },
+    { icon: Linkedin, href: "https://linkedin.com/in/takshgolakiya", label: "LinkedIn" },
+    { icon: Github, href: "https://github.com/Ayushgolakiya/taguprort.git", label: "GitHub" },
+    { icon: Mail, href: "mailto:tgolakiy@purdue.edu", label: "Email" },
     { icon: UserPlus, href: "/api/vcard", label: "Save Contact" },
   ]
 
@@ -42,7 +42,7 @@ export function Footer() {
             <span>using Next.js, Tailwind CSS, and Framer Motion</span>
           </div>
 
-          <p className="text-fluid-sm text-muted-light">© {new Date().getFullYear()} Ayush Golakiya. All rights reserved.</p>
+          <p className="text-fluid-sm text-muted-light">© {new Date().getFullYear()} Taksh Golakiya. All rights reserved.</p>
         </motion.div>
       </div>
     </footer>

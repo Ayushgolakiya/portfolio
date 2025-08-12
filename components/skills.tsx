@@ -7,36 +7,32 @@ import { Badge } from "@/components/ui/badge"
 export function Skills() {
   const skillCategories = [
     {
-      category: "Programming Languages",
-      skills: ["Python", "JavaScript", "TypeScript", "C++", "Java", "R", "Dart", "HTML/CSS"],
+      category: "Programming & Control",
+      skills: ["C", "C++", "Python", "PLC (Allen‑Bradley)", "Ladder Logic"],
     },
     {
-      category: "AI/ML Frameworks",
-      skills: ["TensorFlow", "PyTorch", "Keras", "Scikit-learn", "OpenCV", "Hugging Face", "MLflow", "ONNX"],
+      category: "Electronics & PCB",
+      skills: ["KiCad", "Altium", "Embedded/PLC Interfacing", "Sensor Integration"],
     },
     {
-      category: "Web Frameworks",
-      skills: ["React.js", "Next.js", "Node.js", "Express.js", "Spring Boot", "FastAPI", "Flask", "AngularJS"],
+      category: "CAD & Simulation",
+      skills: ["SOLIDWORKS", "Fusion 360", "Autodesk Inventor", "MATLAB"],
     },
     {
-      category: "Databases",
-      skills: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Firebase", "Apache Cassandra", "PGVector"],
+      category: "Data/Tools",
+      skills: ["PDM", "IBM SPSS", "ARAS"],
     },
     {
-      category: "Cloud & DevOps",
-      skills: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes", "CI/CD", "Terraform", "Git"],
-    },
-    {
-      category: "MLOps & Data",
-      skills: ["MLflow", "TensorBoard", "Jupyter", "Power BI", "Apache Kafka", "Airflow", "DVC"],
-    },
-    {
-      category: "Specialized Domains",
-      skills: ["Computer Vision", "NLP", "Reinforcement Learning", "LLMs", "Voice AI", "IoT", "Blockchain"],
-    },
-    {
-      category: "Tools & Platforms",
-      skills: ["VS Code", "Postman", "N8N", "Salesforce", "Shopify", "Binance API", "Whisper", "Ollama"],
+      category: "Core Competencies",
+      skills: [
+        "Mechanical Assembly",
+        "Circuit Design & Troubleshooting",
+        "HMI Development",
+        "Robotics & Automation",
+        "PCB Prototyping",
+        "Embedded Firmware",
+        "Industrial Control",
+      ],
     },
   ]
 
@@ -123,36 +119,16 @@ export function Skills() {
               <h3 className="text-fluid-3xl font-bold mb-fluid-8 text-center text-accent hover-glow-purple pt-5">Domain Expertise</h3>
               <div className="grid-fluid-3 text-fluid-base">
                 <div>
-                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">AI/ML Engineering</h4>
-                  <p className="text-muted-light leading-relaxed">
-                    Production-grade AI pipelines, GPU-optimized LLMs, custom kernel development for iGPUs
-                  </p>
+                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">Industrial Automation</h4>
+                  <p className="text-muted-light leading-relaxed">PLC programming, HMI design, interlocks, and safety logic</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">Full-Stack Development</h4>
-                  <p className="text-muted-light leading-relaxed">
-                    MEAN/MERN stacks, Spring Boot, FastAPI with JWT, WebSockets, and CI/CD
-                  </p>
+                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">Electromechanical Systems</h4>
+                  <p className="text-muted-light leading-relaxed">Sensor integration, signal processing, actuator selection</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">MLOps & DevOps</h4>
-                  <p className="text-muted-light leading-relaxed">
-                    MLflow to ONNX/TensorRT pipelines, containerization, secrets management
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">Autonomous Systems</h4>
-                  <p className="text-muted-light leading-relaxed">
-                    RL trading engines, 24/7 execution systems, real-time decision making
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">Conversational AI</h4>
-                  <p className="text-muted-light leading-relaxed">Voice agents, multilingual transformers, Redis memory, Whisper ASR</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">Computer Vision</h4>
-                  <p className="text-muted-light leading-relaxed">YOLO, Faster R-CNN, OpenCV, satellite imagery, spatial analytics</p>
+                  <h4 className="font-semibold text-primary-light mb-fluid-3 text-fluid-lg">CAD & Prototyping</h4>
+                  <p className="text-muted-light leading-relaxed">CAD modeling, PCB layout, rapid prototyping, test and validation</p>
                 </div>
               </div>
             </Card>

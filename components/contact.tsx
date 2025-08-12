@@ -41,7 +41,7 @@ export function Contact() {
         from_email: formData.email,
         subject: formData.subject,
         message: formData.message,
-        to_email: 'golakiyaayush29@gmail.com'
+        to_email: 'tgolakiy@purdue.edu'
       }
 
       const result = await emailjs.send(serviceId, templateId, templateParams, publicKey)
@@ -70,7 +70,7 @@ export function Contact() {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-fluid-5xl font-bold mb-fluid-16 text-center text-gradient-purple">
-            Let's Build Something Amazing
+            Let's Build Reliable Automation
           </h2>
 
           <div className="grid-fluid-2">
@@ -93,10 +93,10 @@ export function Contact() {
                       <p className="font-medium text-primary-light text-fluid-lg">Email</p>
                       <div className="flex flex-col gap-2">
                         <a
-                          href="mailto:golakiyaayush29@gmail.com"
+                          href="mailto:tgolakiy@purdue.edu"
                           className="text-secondary-light hover:text-accent transition-colors duration-200 hover-glow-purple text-fluid-base"
                         >
-                          golakiyaayush29@gmail.com
+                          tgolakiy@purdue.edu
                         </a>
 
                       </div>
@@ -109,18 +109,18 @@ export function Contact() {
                     </div>
                     <div>
                       <p className="font-medium text-primary-light text-fluid-lg">Availability</p>
-                      <p className="text-secondary-light text-fluid-base">Open for collaborations & opportunities</p>
+                      <p className="text-secondary-light text-fluid-base">Open for mechatronics/automation roles & projects</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="card-fluid rounded-xl bg-gradient-to-r from-accent/5 to-accent-secondary/5 border border-accent/20">
-                  <h4 className="font-bold text-accent mb-fluid-3 text-fluid-lg hover-glow-purple">Currently Available For:</h4>
+                   <h4 className="font-bold text-accent mb-fluid-3 text-fluid-lg hover-glow-purple">Currently Available For:</h4>
                   <ul className="text-fluid-sm text-muted-light space-fluid-2">
-                    <li>• AI/ML Engineering Roles</li>
-                    <li>• Full-Stack Development Projects</li>
-                    <li>• Research Collaborations</li>
-                    <li>• Consulting & Technical Advisory</li>
+                    <li>• Mechatronics/Automation Roles</li>
+                    <li>• PLC Programming & HMI Development</li>
+                    <li>• PCB/Sensor Integration Projects</li>
+                    <li>• Robotics & Control Systems</li>
                   </ul>
                 </div>
               </Card>
@@ -236,8 +236,11 @@ export function Contact() {
                 <Button
                   variant="outline"
                   className="button-fluid border-accent text-accent hover:bg-accent hover:text-black rounded-full transition-all duration-300 hover:scale-105 bg-transparent hover:shadow-lg hover:shadow-accent/25"
+                  asChild
                 >
-                  View Resume
+                  <a href="/Taksh Golakiya — Combined Resume (2025)[1].pdf" download>
+                    View Resume
+                  </a>
                 </Button>
               </div>
             </Card>
